@@ -5,7 +5,7 @@ class CNode {
     }
 
     setNextNode(node) {
-        if (!(node instanceof CNode)) {
+        if (!(node instanceof CNode) && node != null) {
             throw new Error("Next node must be a member of the Node class");
         }
         this.next = node;
