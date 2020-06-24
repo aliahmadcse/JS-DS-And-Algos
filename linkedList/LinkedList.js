@@ -3,7 +3,6 @@ import Node from "./CNode.js";
 class LinkedList {
     constructor() {
         this.head = null;
-        this.counter = 0;
     }
 
     /**
@@ -17,7 +16,6 @@ class LinkedList {
         if (currentHead) {
             newHead.setNextNode(currentHead);
         }
-        // this.counter++;
     }
 
     /**
@@ -34,7 +32,6 @@ class LinkedList {
             }
             tail.setNextNode(new Node(data));
         }
-        // this.counter++;
     }
 
     /**
@@ -70,12 +67,36 @@ class LinkedList {
             return;
         }
         this.head = removedHead.getNextNode();
-        // this.counter--;
         return removedHead.data;
     }
 
     /**
-     * print all the nodes data in the linedList
+     * Removes all the nodes with duplicate data
+     */
+    removeDuplicates() {
+        let currentNode = this.head;
+        if (!currentNode) {
+            return;
+        }
+        let runnerNode = currentNode;
+        while (currentNode) {
+            let prevRunnerNode = runnerNode;
+            runnerNode = currentNode.getNextNode();
+            while (runnerNode) {
+                let isRemoved = false;
+                if (currentNode.data == runnerNode.data) {
+                    prevRunnerNode.setNextNode(runnerNode.getNextNode());
+                    isRemoved = true;
+                }
+                if (!isRemoved) prevRunnerNode = runnerNode;
+                runnerNode = runnerNode.next;
+            }
+            currentNode = currentNode.next;
+        }
+    }
+
+    /**
+     * prints all the nodes data in the linedList
      */
     printList() {
         let currentNode = this.head;

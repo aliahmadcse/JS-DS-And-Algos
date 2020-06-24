@@ -17,3 +17,9 @@ seasons.printList();
 
 seasons.removeNode("winter");
 seasons.printList();
+
+seasons.addToHead("summer");
+seasons.addToHead("summer");
+seasons.printList();
+seasons.removeDuplicates();
+seasons.printList();
