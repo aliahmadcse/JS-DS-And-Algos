@@ -24,6 +24,23 @@ class DLinkedList {
     }
 
     /**
+     * Add to the tail of the list
+     * @param {any} data
+     */
+    addToTail(data) {
+        const newTail = new Node(data);
+        const currentTail = this.tail;
+        if (currentTail) {
+            currentTail.setNextNode(newTail);
+            newTail.setPreviousNode(currentTail);
+        }
+        this.tail = newTail;
+        if (!this.head) {
+            this.head = newTail;
+        }
+    }
+
+    /**
      * prints the list
      */
     printList() {
