@@ -61,6 +61,20 @@ class DLinkedList {
     /**
      * remove the tail node of the list
      */
+    removeTail() {
+        const removedTail = this.tail;
+        if (!removedTail) {
+            return;
+        }
+        this.tail = removedTail.getPreviousNode();
+        if (this.tail) {
+            this.tail.setNextNode(null);
+        }
+        if (removedTail === this.head) {
+            this.removeHead();
+        }
+        return removedTail.data;
+    }
 
     /**
      * prints the list
