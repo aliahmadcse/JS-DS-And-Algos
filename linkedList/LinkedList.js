@@ -151,6 +151,22 @@ class LinkedList {
     }
 
     /**
+     * returns linked list nth last node data
+     * through an array implementation
+     * @param {int} n the nth node to be returned
+     */
+    arrayNthLast(n) {
+        const linkedListArr = [];
+        let currentNode = this.head;
+        while (currentNode) {
+            linkedListArr.push(currentNode);
+            currentNode = currentNode.getNextNode();
+        }
+        // return linkedListArr[linkedListArr.length - n].data;
+        return linkedListArr;
+    }
+
+    /**
      * prints all the nodes data in the linedList
      */
     printList() {

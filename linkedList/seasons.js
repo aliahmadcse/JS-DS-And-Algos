@@ -34,3 +34,4 @@ numList.printList();
 
 numList.swapNodes(6, 9);
 numList.printList();
+console.log(numList.arrayNthLast(3));
