@@ -34,4 +34,5 @@ numList.printList();
 
 numList.swapNodes(6, 9);
 numList.printList();
-console.log(numList.nthLastNode(3));
+// console.log(numList.nthLastNode(3));
+console.log(numList.findMiddle());

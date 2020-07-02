@@ -151,6 +151,26 @@ class LinkedList {
     }
 
     /**
+     * finds and return the middle node in the list
+     * used two pointer
+     * when slowPtr is moved one step ahead, the fastPtr is moved
+     * two steps ahead
+     * @returns {Node} slowPtr
+     */
+    findMiddle() {
+        let fastPtr = this.head;
+        let slowPtr = this.head;
+        while (fastPtr) {
+            fastPtr = fastPtr.getNextNode();
+            if (fastPtr) {
+                fastPtr = fastPtr.getNextNode();
+                slowPtr = slowPtr.getNextNode();
+            }
+        }
+        return slowPtr;
+    }
+
+    /**
      * returns linked list nth last node data
      * through an array implementation
      * Starts nth node counting from 1
