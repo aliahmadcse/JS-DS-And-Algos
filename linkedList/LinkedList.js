@@ -153,6 +153,7 @@ class LinkedList {
     /**
      * returns linked list nth last node data
      * through an array implementation
+     * Starts nth node counting from 1
      * @param {int} n the nth node to be returned
      */
     arrayNthLast(n) {
@@ -162,8 +163,30 @@ class LinkedList {
             linkedListArr.push(currentNode);
             currentNode = currentNode.getNextNode();
         }
-        // return linkedListArr[linkedListArr.length - n].data;
-        return linkedListArr;
+        return linkedListArr[linkedListArr.length - n].data;
+    }
+
+    /**
+     * uses an extra pointer to returns nth last node of list
+     * Starts nth node counting from 1
+     * @param {int} n
+     */
+    nthLastNode(n) {
+        let nthLastNodePtr = null;
+        let tailPtr = this.head;
+        let count = 0;
+
+        while (tailPtr) {
+            tailPtr = tailPtr.getNextNode();
+            if (count >= n) {
+                if (!nthLastNodePtr) {
+                    nthLastNodePtr = this.head;
+                }
+                nthLastNodePtr = nthLastNodePtr.getNextNode();
+            }
+            count++;
+        }
+        return nthLastNodePtr;
     }
 
     /**
